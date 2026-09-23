@@ -125,6 +125,8 @@ const withFull = [candidates.chair, candidates.viceChair, ...candidates.items].f
   .bio-dialog {
     border: none; padding: 0; background: transparent; color: var(--ink);
     width: min(660px, calc(100% - 2rem)); overflow: visible;
+    /* restore the centering the global `* { margin: 0 }` reset strips off */
+    margin: auto;
   }
   .bio-dialog::backdrop { background: rgba(0, 0, 0, 0.62); }
   .bio-card {
