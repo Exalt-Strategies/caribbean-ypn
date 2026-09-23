@@ -2,7 +2,7 @@
 title: "Young people are winning seats across the region"
 date: 2026-07-16
 tag: event
-excerpt: "From Barbados to Trinidad, a new cohort of under-forties is being elected. The network exists to connect them."
+excerpt: "From Barbados to Trinidad, a new cohort of under-35s is being elected. The network exists to connect them."
 image: "/img/updates/update-working.jpg"
 ---
 

@@ -2,7 +2,7 @@
 title: "The Caribbean's young members are already here"
 date: 2026-07-10
 tag: essay
-excerpt: "A new cohort of under-forties is winning office across the region. The task now is to connect them."
+excerpt: "A new cohort of under-35s is winning office across the region. The task now is to connect them."
 ---
 
 It is easy to talk about young people in politics as a future prospect. In the Caribbean, they are already being elected.

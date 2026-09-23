@@ -2,12 +2,12 @@
 title: "What it's like to be the youngest person in the chamber"
 date: 2026-06-20
 tag: explainer
-excerpt: "Winning a seat young is only the beginning. Here is what the job actually asks of a first-term parliamentarian under forty."
+excerpt: "Winning a seat young is only the beginning. Here is what the job actually asks of a first-term parliamentarian under thirty-five."
 ---
 
 Getting elected is the headline. The work begins the day after.
 
-A new member under forty arrives to a set of rules written long before them: standing orders, committee conventions, the unspoken etiquette of the floor. Much of it is learned by watching, and there are rarely many peers the same age to learn alongside.
+A new member under thirty-five arrives to a set of rules written long before them: standing orders, committee conventions, the unspoken etiquette of the floor. Much of it is learned by watching, and there are rarely many peers the same age to learn alongside.
 
 The portfolios that most affect young people, education, jobs, climate, digital, are often decided in committees where the youngest voices are thinnest. Being in the room is not the same as being heard in it.
 

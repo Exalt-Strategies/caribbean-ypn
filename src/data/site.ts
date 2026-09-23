@@ -2,7 +2,7 @@
  * SITE CONTENT — the words layer. Components read from here.
  *
  * Caribbean Young Parliamentarians Network (CYPN): a network of young elected
- * members of parliament across the Caribbean Community. Parliamentarian names
+ * members of parliament across the Caribbean. Parliamentarian names
  * and figures below are illustrative placeholders for this design build —
  * swap for verified data before any real launch.
  *
@@ -36,7 +36,7 @@ export const site = {
   name: "Caribbean Young Parliamentarians Network",
   shortName: "CYPN",
   description:
-    "The network of young elected members of parliament across the Caribbean Community, building a louder generation in every chamber.",
+    "The network of young elected members of parliament across the Caribbean, building a louder generation in every chamber.",
 
   ctaLabel: "Join the network",
   ctaHref: "/#join",
@@ -57,7 +57,7 @@ export const site = {
   ],
 
   hero: {
-    badge: "The under-40 caucus of the Caribbean Community",
+    badge: "The under-35 caucus of the Caribbean",
     title: "Young Voices, Real Seats",
     subtitle:
       "The network of young parliamentarians turning Caribbean chambers into rooms built for the generation that inherits every decision.",
@@ -81,7 +81,7 @@ export const site = {
     title: "New, and Building",
     items: [
       { num: "2026", label: "Founded", note: "Convened by the Centre for Youth Policy as a network for young Caribbean parliamentarians." },
-      { num: "Under 40", label: "Who it's for", note: "Membership is open to sitting members of parliament under forty." },
+      { num: "Under 35", label: "Who it's for", note: "Membership is open to sitting members of parliament under thirty-five." },
       { num: "15", label: "Member states", note: "The Caribbean parliaments the network is being built across." },
     ],
   },
@@ -123,7 +123,7 @@ export const site = {
   memberStates: {
     eyebrow: "Fifteen Chambers",
     title: "Caribbean Member States",
-    lead: "The Caribbean Community's fifteen member states, the parliaments the network is being built across.",
+    lead: "The Caribbean's fifteen member states, the parliaments the network is being built across.",
     items: [
       { country: "Trinidad & Tobago", capital: "Port of Spain", iso: "tt" },
       { country: "Jamaica", capital: "Kingston", iso: "jm" },
@@ -197,8 +197,8 @@ export const site = {
     title: "A Network in Year One",
     items: [
       { label: "2026", title: "The network launches", text: "The Centre for Youth Policy convenes young Caribbean parliamentarians into one standing network across the region." },
-      { label: "2026", title: "A founding cohort", text: "Sitting members under forty, across parties and across borders, come together and choose a chair and vice chair." },
-      { label: "Next", title: "Building the chapters", text: "The work ahead: a national chapter in each member parliament and a shared agenda for the region's under-forties." },
+      { label: "2026", title: "A founding cohort", text: "Sitting members under thirty-five, across parties and across borders, come together and choose a chair and vice chair." },
+      { label: "Next", title: "Building the chapters", text: "The work ahead: a national chapter in each member parliament and a shared agenda for the region's under-35s." },
     ],
   },
 
@@ -206,7 +206,7 @@ export const site = {
     eyebrow: "Questions",
     title: "About the Network",
     items: [
-      { q: "Who can be a member?", a: "The network is for sitting young parliamentarians: any current member of a Caribbean parliament, in either chamber, who is under forty. It is a caucus of people who already hold a seat." },
+      { q: "Who can be a member?", a: "The network is for sitting young parliamentarians: any current member of a Caribbean parliament, in either chamber, who is under thirty-five. It is a caucus of people who already hold a seat." },
       { q: "Is this a political party?", a: "No. The network is cross-party. Members belong to whichever party they were elected under; it brings them together around a shared, generational agenda, not a whip." },
       { q: "What does a national chapter do?", a: "It brings together the young members sitting in one parliament, coordinates their work across committees, and connects them to the wider regional network." },
       { q: "I'm not elected yet. Can I take part?", a: "Full membership is for people already holding a seat, so not yet. But you can follow the network's work, and connect with the young members and chapter forming in your own country." },
@@ -251,7 +251,7 @@ export const site = {
   },
 
   footer: {
-    tagline: "The network of young elected members across the Caribbean Community.",
+    tagline: "The network of young elected members across the Caribbean.",
     sponsor: "The Caribbean Young Parliamentarians Network is a programme of the Centre for Youth Policy (CYP), which serves as its secretariat, headquarters, and fiscal sponsor.",
     designer: "Website designed by Exalt Strategies.",
     columns: [
