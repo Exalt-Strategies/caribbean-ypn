@@ -1,10 +1,18 @@
 ---
-/** Recipe: PEOPLE RAIL — scroll-snap row of portrait cards with arrows. */
+/** Recipe: PEOPLE RAIL — scroll-snap row of portrait cards with arrows.
+ *  Anyone with a `fullBio` also gets a "Full bio" button that opens a native
+ *  <dialog> modal with the complete bio. */
 import SectionHeader from "../SectionHeader.astro";
 import Rail from "../Rail.astro";
 import MediaFrame from "../MediaFrame.astro";
 import { site } from "../../data/site";
 const { candidates } = site;
+
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+// everyone with a full bio, gathered so their modals render once at the end
+const withFull = [candidates.chair, candidates.viceChair, ...candidates.items].filter(
+  (p): p is any => !!p && Array.isArray((p as any).fullBio) && (p as any).fullBio.length > 0
+);
 ---
 
 {candidates && (
@@ -25,6 +33,9 @@ const { candidates } = site;
           <h3 class="chair-name t-display t-outline">{candidates.chair.name}</h3>
           <p class="chair-role t-eyebrow">{candidates.chair.role}</p>
           <p class="chair-note">{candidates.chair.note}</p>
+          {(candidates.chair as any).fullBio && (
+            <button type="button" class="cta-pill bio-open" data-bio-open={`bio-${slug(candidates.chair.name)}`}>Full bio →</button>
+          )}
         </div>
       </article>
     )}
@@ -38,6 +49,9 @@ const { candidates } = site;
           <h3 class="chair-name t-display t-outline">{candidates.viceChair.name}</h3>
           <p class="chair-role t-eyebrow">{candidates.viceChair.role}</p>
           <p class="chair-note">{candidates.viceChair.note}</p>
+          {(candidates.viceChair as any).fullBio && (
+            <button type="button" class="cta-pill bio-open" data-bio-open={`bio-${slug(candidates.viceChair.name)}`}>Full bio →</button>
+          )}
         </div>
       </article>
     )}
@@ -50,10 +64,27 @@ const { candidates } = site;
             <p class="cand-role">{c.role}</p>
             <span class="pill pill-soft">{c.region}</span>
             {(c as { bio?: string }).bio && <p class="cand-bio">{(c as { bio?: string }).bio}</p>}
+            {(c as any).fullBio && (
+              <button type="button" class="cta-pill bio-open cand-bio-btn" data-bio-open={`bio-${slug(c.name)}`}>Full bio →</button>
+            )}
           </div>
         </article>
       ))}
     </Rail>
+
+    {withFull.map((p) => (
+      <dialog id={`bio-${slug(p.name)}`} class="bio-dialog">
+        <div class="bio-card">
+          <button type="button" class="bio-close" data-bio-close aria-label="Close">×</button>
+          <div class="bio-scroll">
+            <span class="pill bio-tag">{p.label ?? p.region ?? "Member"}</span>
+            <h3 class="bio-title t-display">{p.name}</h3>
+            <p class="bio-role t-eyebrow">{p.role}</p>
+            {p.fullBio.map((para: string) => <p class="bio-para">{para}</p>)}
+          </div>
+        </div>
+      </dialog>
+    ))}
   </section>
 )}
 
@@ -71,6 +102,7 @@ const { candidates } = site;
   .chair-name { font-size: clamp(2.4rem, 5.5vw, 4rem); margin: 0.9rem 0 0.2rem; }
   .chair-role { opacity: 0.9; margin-bottom: 0.9rem; }
   .chair-note { font-weight: 600; font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.5; max-width: 46ch; }
+  .chair-text .bio-open { align-self: flex-start; }
   @media (max-width: 640px) { .chair { grid-template-columns: 1fr; } }
 
   /* Vice Chairperson spotlight — cobalt card, coral frame, to clash with the
@@ -84,4 +116,46 @@ const { candidates } = site;
   .cand-role { opacity: 0.8; font-size: 0.92rem; font-weight: 600; }
   .cand-text .pill { margin-top: 0.5rem; }
   .cand-bio { margin-top: 0.6rem; font-size: 0.85rem; line-height: 1.45; font-weight: 500; opacity: 0.85; }
+
+  /* "Full bio" button */
+  .bio-open { font-size: 0.7rem; padding: 0.7rem 1.3rem; margin-top: 1.1rem; }
+  .cand-bio-btn { margin-top: 0.7rem; font-size: 0.6rem; padding: 0.55rem 1rem; }
+
+  /* Full-bio modal — a sticker poster-card dialog. */
+  .bio-dialog {
+    border: none; padding: 0; background: transparent; color: var(--ink);
+    width: min(660px, calc(100% - 2rem)); overflow: visible;
+  }
+  .bio-dialog::backdrop { background: rgba(0, 0, 0, 0.62); }
+  .bio-card {
+    background: var(--lemon); color: var(--ink);
+    border: 3px solid var(--ink); border-radius: var(--radius-outer);
+    position: relative; max-height: min(86vh, 760px); display: flex; overflow: hidden;
+  }
+  .bio-scroll { overflow-y: auto; width: 100%; padding: clamp(1.6rem, 4vw, 2.6rem); }
+  .bio-close {
+    position: absolute; top: 1rem; right: 1rem; z-index: 2;
+    width: 44px; height: 44px; border-radius: 999px;
+    border: 3px solid var(--ink); background: var(--paper); color: var(--ink);
+    font-weight: 800; font-size: 1.4rem; line-height: 1; cursor: pointer;
+  }
+  .bio-close:hover { transform: translate(-1px, -2px); }
+  .bio-tag { --pill-bg: var(--ink); color: var(--paper); }
+  .bio-title { font-size: clamp(1.9rem, 4.5vw, 2.8rem); margin: 0.8rem 3rem 0.2rem 0; }
+  .bio-role { opacity: 0.75; margin-bottom: 0.6rem; }
+  .bio-para { font-weight: 500; font-size: clamp(0.95rem, 1.3vw, 1.05rem); line-height: 1.6; margin-top: 0.9rem; max-width: 60ch; }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-bio-open]").forEach((btn) => {
+    const dlg = document.getElementById(btn.getAttribute("data-bio-open")!) as HTMLDialogElement | null;
+    if (dlg && typeof dlg.showModal === "function") {
+      btn.addEventListener("click", () => dlg.showModal());
+    }
+  });
+  document.querySelectorAll<HTMLDialogElement>("dialog.bio-dialog").forEach((dlg) => {
+    dlg.querySelector<HTMLButtonElement>("[data-bio-close]")?.addEventListener("click", () => dlg.close());
+    // click on the backdrop (outside the card) closes it
+    dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+  });
+</script>

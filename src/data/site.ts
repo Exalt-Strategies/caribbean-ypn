@@ -96,6 +96,12 @@ export const site = {
       role: "Senator · Belize",
       photo: "/img/brittney-galvez.jpg",
       note: "A Senator in the National Assembly of Belize and Program Coordinator at the Office of the Special Envoy for the Development of Families & Children. One of the youngest women to serve in Belize's Parliament, she champions youth and women's empowerment at home and at regional and international forums.",
+      fullBio: [
+        "Hon. Brittney Galvez is a Senator in the National Assembly of Belize and Program Coordinator at the Office of the Special Envoy for the Development of Families & Children. She holds a Bachelor's degree in Psychology from the University of the West Indies and is pursuing a Master's in Public Health at Edinburgh Napier University.",
+        "At the Office of the Special Envoy, she coordinates national programs focused on empowering women, children, families, and vulnerable groups through collaboration with government agencies, civil society organizations, and development partners.",
+        "As a parliamentarian, Senator Galvez advocates for youth and women, championing policies that expand opportunities, strengthen communities, and empower future leaders. As one of the youngest women to serve in Belize's Parliament, she has represented Belize at regional and international forums on inclusive governance, youth political participation, women's empowerment, and sustainable development.",
+        "Her leadership in civil society includes serving as Assistant Secretary of the United Women's Group and Public Relations Officer for the Caribbean Women in Leadership (CIWiL) Belize National Chapter. She currently serves as Vice-President of the Belize Youth Movement National Executive and Vice-President for Central America of the ParlAmericas Parliamentary Network for Gender Equality. She is a member of the Commonwealth Parliamentary Association and an alumna of the U.S. Department of State's International Visitors Leadership Program on Youth in the Political Process.",
+      ],
     },
     viceChair: {
       label: "Vice Chairperson",
