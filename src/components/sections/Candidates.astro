@@ -49,6 +49,7 @@ const { candidates } = site;
             <h3 class="cand-name">{c.name}</h3>
             <p class="cand-role">{c.role}</p>
             <span class="pill pill-soft">{c.region}</span>
+            {(c as { bio?: string }).bio && <p class="cand-bio">{(c as { bio?: string }).bio}</p>}
           </div>
         </article>
       ))}
@@ -82,4 +83,5 @@ const { candidates } = site;
   .cand-name { font-size: 1.2rem; font-weight: 800; }
   .cand-role { opacity: 0.8; font-size: 0.92rem; font-weight: 600; }
   .cand-text .pill { margin-top: 0.5rem; }
+  .cand-bio { margin-top: 0.6rem; font-size: 0.85rem; line-height: 1.45; font-weight: 500; opacity: 0.85; }
 </style>

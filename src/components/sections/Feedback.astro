@@ -1,0 +1,122 @@
+---
+/** Recipe: FEEDBACK — a quick submission form so young people across the
+ *  region can share concerns/ideas. Real in-page submit via fetch to
+ *  `feedback.endpoint` (FormSubmit relay by default); falls back to a mailto
+ *  draft if that fails or no endpoint is set. NOT the conversion panel, so it
+ *  uses a plain card, not `.panel` (one-panel rhythm rule stays intact). */
+import SectionHeader from "../SectionHeader.astro";
+import { site } from "../../data/site";
+const { feedback } = site as any;
+---
+
+{feedback && (
+  <section class="section container" id="feedback">
+    <SectionHeader eyebrow={feedback.eyebrow} title={feedback.title} lead={feedback.lead} />
+    <form
+      class="fb-form card card-pad reveal"
+      data-feedback
+      data-endpoint={feedback.endpoint || ""}
+      data-email={feedback.email}
+    >
+      <div class="fb-row">
+        <label class="fb-field">{feedback.fields.name}
+          <input name="name" type="text" required autocomplete="name" />
+        </label>
+        <label class="fb-field">{feedback.fields.country}
+          <input name="country" type="text" list="fb-countries" autocomplete="country-name" />
+        </label>
+      </div>
+      <label class="fb-field">{feedback.fields.topic}
+        <select name="topic">
+          {feedback.topics.map((t: string) => <option value={t}>{t}</option>)}
+        </select>
+      </label>
+      <label class="fb-field">{feedback.fields.message}
+        <textarea name="message" rows="4" required></textarea>
+      </label>
+      {/* spam honeypot — real people leave this empty */}
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="fb-honey" aria-hidden="true" />
+      <datalist id="fb-countries">
+        {site.memberStates.items.map((s) => <option value={s.country}></option>)}
+      </datalist>
+      <div class="fb-actions">
+        <button type="submit" class="cta-pill fb-submit">{feedback.submit}</button>
+        <p class="fb-confirm" data-confirm hidden>{feedback.confirm}</p>
+      </div>
+    </form>
+  </section>
+)}
+
+<style>
+  .fb-form {
+    max-width: 720px; margin-inline: auto;
+    background: var(--paper); color: var(--ink);
+    display: flex; flex-direction: column; gap: 1.1rem;
+  }
+  .fb-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  @media (max-width: 560px) { .fb-row { grid-template-columns: 1fr; } }
+  .fb-field {
+    display: flex; flex-direction: column; gap: 0.45rem;
+    font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink);
+  }
+  .fb-field input, .fb-field select, .fb-field textarea {
+    font: inherit; font-weight: 500; letter-spacing: normal; text-transform: none;
+    color: var(--ink); background: var(--paper);
+    border: 2px solid var(--ink); border-radius: 14px; padding: 0.75rem 0.9rem;
+    width: 100%;
+  }
+  .fb-field textarea { resize: vertical; min-height: 96px; }
+  .fb-field input:focus-visible, .fb-field select:focus-visible, .fb-field textarea:focus-visible {
+    outline: 3px solid var(--cobalt); outline-offset: 1px;
+  }
+  .fb-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .fb-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .fb-submit { align-self: flex-start; }
+  .fb-confirm { font-weight: 700; font-size: 0.92rem; color: var(--kelly-green); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>("form[data-feedback]").forEach((form) => {
+    const confirmEl = form.querySelector<HTMLElement>("[data-confirm]");
+    const submitBtn = form.querySelector<HTMLButtonElement>(".fb-submit");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if ((form.querySelector<HTMLInputElement>("[name='_honey']")?.value || "").length) return;
+      const fd = new FormData(form);
+      const data: Record<string, string> = {};
+      fd.forEach((v, k) => { if (k !== "_honey") data[k] = String(v); });
+      if (!data.name?.trim() || !data.message?.trim()) return;
+
+      const endpoint = form.dataset.endpoint;
+      const done = () => {
+        if (confirmEl) confirmEl.hidden = false;
+        form.reset();
+      };
+      const mailto = () => {
+        const subject = encodeURIComponent("Caribbean YPN — youth voice");
+        const body = encodeURIComponent(
+          Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n")
+        );
+        window.location.href = `mailto:${form.dataset.email}?subject=${subject}&body=${body}`;
+      };
+
+      if (!endpoint) { mailto(); done(); return; }
+      if (submitBtn) submitBtn.disabled = true;
+      try {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ ...data, _subject: "Caribbean YPN — youth voice", _captcha: "false" }),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        done();
+      } catch {
+        mailto();
+        done();
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  });
+</script>
