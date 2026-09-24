@@ -1,11 +1,11 @@
 ---
-title: "The fifteen member states in scope"
+title: "The Caribbean nations and territories in scope"
 date: 2026-07-02
 tag: announcement
-excerpt: "The network is being built across the parliaments of all fifteen Caribbean member states."
+excerpt: "The network is being built across the Caribbean, from independent states to overseas territories, and it isn't an exhaustive list."
 image: "/img/updates/update-govhouse.jpg"
 ---
 
-The network is open to sitting young members across all fifteen Caribbean member states, from Antigua and Barbuda to Trinidad and Tobago.
+The network is open to young members across the Caribbean, from Antigua and Barbuda to Trinidad and Tobago, and from independent states to overseas territories.
 
-Building a presence in each parliament takes time. The near-term work is connecting the young members who already hold seats, and helping a chapter form, country by country.
+The list is not exhaustive, and as the network grows we plan to include more. Building a presence in each legislature takes time; the near-term work is connecting the young members who already hold seats, country by country.

@@ -66,14 +66,15 @@
   .s3 .who .role { font-weight:800; font-size:28px; letter-spacing:0.06em; text-transform:uppercase; opacity:0.9; }
   .s3 .bio { font-weight:500; font-size:38px; line-height:1.3; margin-top:32px; }
 
-  /* Slide 4 — all member states */
+  /* Slide 4 — nations & territories */
   .s4 { --bg:var(--orchid); --fg:var(--ink); --kick:var(--lemon); }
-  .s4 .h { font-size:92px; margin-top:8px; }
-  .s4 .flags { display:grid; grid-template-columns:repeat(3,1fr); gap:30px 22px; margin-top:40px; }
-  .s4 .flag { display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; }
-  .s4 .chip { width:104px; height:68px; border:4px solid var(--ink); border-radius:12px; overflow:hidden; background:var(--paper); }
+  .s4 .h { font-size:74px; margin-top:6px; }
+  .s4 .flags { display:grid; grid-template-columns:repeat(5,1fr); gap:22px 14px; margin-top:30px; }
+  .s4 .flag { display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; }
+  .s4 .chip { width:90px; height:60px; border:3px solid var(--ink); border-radius:10px; overflow:hidden; background:var(--paper); }
   .s4 .chip img { width:100%; height:100%; object-fit:cover; display:block; }
-  .s4 .nm { font-weight:800; font-size:23px; line-height:1.12; }
+  .s4 .nm { font-weight:800; font-size:18px; line-height:1.1; }
+  .s4 .note { margin-top:26px; font-weight:700; font-size:26px; line-height:1.25; opacity:0.85; }
 
   /* Slide 5 — get involved */
   .s5 { --bg:var(--lemon); --fg:var(--ink); --kick:var(--cobalt); }
@@ -138,28 +139,39 @@
   <section class="slide" data-n="4">
     <div class="poster s4">
       <img class="logo-sm" src="/logo-black.png" alt="Caribbean Young Parliamentarians Network" />
-      <span class="kicker">Across the region</span>
-      <div class="h">Fifteen Chambers</div>
+      <span class="kicker">The region</span>
+      <div class="h">Across the Caribbean</div>
       <div class="flags">
-        <div class="flag"><span class="chip"><img src="/img/flags/ag.svg" alt="" /></span><span class="nm">Antigua &amp; Barbuda</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/ai.svg" alt="" /></span><span class="nm">Anguilla</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/ag.svg" alt="" /></span><span class="nm">Antigua & Barbuda</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/aw.svg" alt="" /></span><span class="nm">Aruba</span></div>
         <div class="flag"><span class="chip"><img src="/img/flags/bs.svg" alt="" /></span><span class="nm">The Bahamas</span></div>
         <div class="flag"><span class="chip"><img src="/img/flags/bb.svg" alt="" /></span><span class="nm">Barbados</span></div>
         <div class="flag"><span class="chip"><img src="/img/flags/bz.svg" alt="" /></span><span class="nm">Belize</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/bm.svg" alt="" /></span><span class="nm">Bermuda</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/vg.svg" alt="" /></span><span class="nm">British Virgin Is.</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/ky.svg" alt="" /></span><span class="nm">Cayman Islands</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/cu.svg" alt="" /></span><span class="nm">Cuba</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/cw.svg" alt="" /></span><span class="nm">Curaçao</span></div>
         <div class="flag"><span class="chip"><img src="/img/flags/dm.svg" alt="" /></span><span class="nm">Dominica</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/do.svg" alt="" /></span><span class="nm">Dominican Rep.</span></div>
         <div class="flag"><span class="chip"><img src="/img/flags/gd.svg" alt="" /></span><span class="nm">Grenada</span></div>
         <div class="flag"><span class="chip"><img src="/img/flags/gy.svg" alt="" /></span><span class="nm">Guyana</span></div>
         <div class="flag"><span class="chip"><img src="/img/flags/ht.svg" alt="" /></span><span class="nm">Haiti</span></div>
         <div class="flag"><span class="chip"><img src="/img/flags/jm.svg" alt="" /></span><span class="nm">Jamaica</span></div>
         <div class="flag"><span class="chip"><img src="/img/flags/ms.svg" alt="" /></span><span class="nm">Montserrat</span></div>
-        <div class="flag"><span class="chip"><img src="/img/flags/kn.svg" alt="" /></span><span class="nm">St. Kitts &amp; Nevis</span></div>
-        <div class="flag"><span class="chip"><img src="/img/flags/lc.svg" alt="" /></span><span class="nm">St. Lucia</span></div>
-        <div class="flag"><span class="chip"><img src="/img/flags/vc.svg" alt="" /></span><span class="nm">St. Vincent &amp; Gren.</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/kn.svg" alt="" /></span><span class="nm">St Kitts & Nevis</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/lc.svg" alt="" /></span><span class="nm">St Lucia</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/vc.svg" alt="" /></span><span class="nm">St Vincent & Gren.</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/sx.svg" alt="" /></span><span class="nm">Sint Maarten</span></div>
         <div class="flag"><span class="chip"><img src="/img/flags/sr.svg" alt="" /></span><span class="nm">Suriname</span></div>
-        <div class="flag"><span class="chip"><img src="/img/flags/tt.svg" alt="" /></span><span class="nm">Trinidad &amp; Tobago</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/tt.svg" alt="" /></span><span class="nm">Trinidad & Tobago</span></div>
+        <div class="flag"><span class="chip"><img src="/img/flags/tc.svg" alt="" /></span><span class="nm">Turks & Caicos</span></div>
       </div>
+      <p class="note">Not an exhaustive list, and growing as the network expands.</p>
       <div class="bottombar">
         <div class="cyp-lockup"><span class="cyp-label">A programme of</span><img class="cyp" src="/img/cyp-black.png" alt="Centre for Youth Policy" /></div>
-        <span class="swipe">Swipe →</span>
+        <span class="swipe">Swipe &rarr;</span>
       </div>
     </div>
   </section>
