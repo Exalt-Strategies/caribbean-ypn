@@ -252,7 +252,6 @@ export const site = {
 
   footer: {
     tagline: "The network of young elected members across the Caribbean.",
-    sponsor: "The Caribbean Young Parliamentarians Network is a programme of the Centre for Youth Policy (CYP), which serves as its secretariat, headquarters, and fiscal sponsor.",
     designer: "Website designed by Exalt Strategies.",
     columns: [
       {
