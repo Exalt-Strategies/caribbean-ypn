@@ -29,6 +29,7 @@ const { footer } = site;
     <p class="foot-fine">
       © {new Date().getFullYear()} {site.name}.
       {footer.designer && <span class="foot-designer"> {footer.designer}</span>}
+      <span class="foot-conv"> · Convened by <a href="https://sudhanshukaushik.com">Sudhanshu Kaushik</a></span>
     </p>
   </div>
 </footer>
@@ -61,6 +62,8 @@ const { footer } = site;
   .foot-cyp img { height: 34px; width: auto; }
   .foot-fine { color: rgba(255, 255, 255, 0.55); font-size: 0.75rem; letter-spacing: 0.03em; }
   .foot-designer { color: var(--acid-lime); font-weight: 700; }
+  .foot-conv { font-size: 0.6rem; opacity: 0.6; }
+  .foot-conv a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
   @media (max-width: 640px) { .foot-bottom { flex-direction: column; align-items: flex-start; } }
 </style>
