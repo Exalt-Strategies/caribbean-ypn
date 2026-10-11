@@ -20,6 +20,7 @@ export const sections = [
   "candidates",
   "memberStates",
   "campaigns",
+  "future-generations",
   "updates",
   "blog",
   "testimonials",
@@ -45,6 +46,7 @@ export const site = {
     { label: "Members", href: "/#candidates" },
     { label: "States", href: "/#memberStates" },
     { label: "Priorities", href: "/#campaigns" },
+    { label: "Future", href: "/#future-generations" },
     { label: "Your Voice", href: "/#feedback" },
     { label: "Blog", href: "/blog" },
   ],
@@ -163,6 +165,59 @@ export const site = {
     ],
   },
 
+  "future-generations": {
+    eyebrow: "The Long View",
+    title: "Future Generations",
+    lead: "Giving tomorrow's Caribbean a voice in today's parliaments.",
+    why: {
+      body: [
+        "In the Caribbean, the long term is concrete. Rising seas, stronger storms and heavy public debt already shape what small states can do. The choices parliaments make now on coasts, borrowing and energy will land on people who cannot vote yet, and many who are not yet born.",
+        "The Caribbean Young Parliamentarians Network, part of the Centre for Youth Policy's family of young parliamentarian networks, works with its members to build lasting parliamentary institutions for future generations.",
+      ],
+      aside: {
+        label: "Built for small states",
+        text: "Malta has a Guardian of Future Generations. Gibraltar has a Commissioner for Sustainable Development and Future Generations. Both show that a lean office can work in a small jurisdiction, at the scale most Caribbean parliaments work at.",
+      },
+    },
+    movement: {
+      title: "A Growing Movement",
+      home: {
+        label: "Closer to home",
+        items: [
+          { name: "Grenada and Barbados", text: "In 2015 Grenada became the first country to write a hurricane clause into its sovereign debt, so payments can pause after a major storm. Barbados has used natural disaster clauses since its 2018 restructuring." },
+          { name: "Barbados", text: "The Bridgetown Initiative, taken to the UN General Assembly in 2022, calls for a global finance system that lets climate-exposed countries invest in their own future." },
+          { name: "Trinidad and Tobago and Guyana", text: "Trinidad and Tobago's Heritage and Stabilisation Fund (2007) saves part of today's energy revenue for future citizens. Guyana's Natural Resource Fund, now governed by a 2021 Act, holds its oil revenue." },
+        ],
+      },
+      world: {
+        label: "Around the world",
+        items: [
+          { name: "Wales", text: "The Well-being of Future Generations Act 2015 and an independent Future Generations Commissioner." },
+          { name: "Hungary", text: "An ombudsman for future generations who can review legislation." },
+          { name: "Finland", text: "A Committee for the Future in parliament since 1993." },
+          { name: "European Union", text: "A Commissioner whose portfolio includes intergenerational fairness, since 2024." },
+          { name: "United Nations", text: "A Declaration on Future Generations, adopted at the 2024 Summit of the Future." },
+        ],
+      },
+      close: "There is no single model yet. Young legislators should help shape what comes next.",
+    },
+    work: {
+      title: "What We Will Do in the Caribbean",
+      items: [
+        { title: "Future generations groups, sized to fit", text: "We help members set up a cross-party group, committee or lean office for future generations, designed for small chambers where a few members cover many briefs." },
+        { title: "Model motions and legislation", text: "We draft model motions on duties to future generations and long-term well-being bills that members can adapt, from Westminster-style chambers to the Dutch Caribbean." },
+        { title: "A future check on budgets and debt", text: "We support members to test bills, budgets and debt terms for their long-term impact, including disaster clauses and resource fund rules, and to publish what they find." },
+        { title: "Caribbean long-term indicators", text: "We are developing regular reports, written with members, on how the future is faring across the region: public debt, coastal risk, energy and migration." },
+        { title: "Learning from those who do it", text: "We connect members with the future generations offices in Wales, Malta, Gibraltar and Finland, and with each other, including through regional forums such as the OECS Assembly." },
+      ],
+    },
+    cta: {
+      text: "Sitting in a Caribbean parliament and under thirty-five? Bring the long term into your chamber with us.",
+      label: "Join the network",
+      href: "/#join",
+    },
+  },
+
   updates: {
     eyebrow: "From the Floor",
     title: "Latest Updates",
@@ -277,6 +332,7 @@ export const site = {
         links: [
           { label: "Join", href: "/#join" },
           { label: "Priorities", href: "/#campaigns" },
+          { label: "Future Generations", href: "/#future-generations" },
           { label: "Charter", href: "/#manifestos" },
         ],
       },

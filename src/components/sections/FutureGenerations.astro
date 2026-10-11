@@ -1,0 +1,106 @@
+---
+/** Recipe: FUTURE GENERATIONS: split why-card (8+4), a two-card movement
+ *  list (home / world), five numbered work cards and a CTA pill. Uses only
+ *  the shared card grammar; no .panel (the one-panel rhythm rule belongs
+ *  to Join). Bespoke touch: a black-keyline "tide line" wave and round
+ *  sticker numbers on the work cards. */
+import SectionHeader from "../SectionHeader.astro";
+import { site } from "../../data/site";
+const fg = site["future-generations"];
+---
+
+{fg && (
+  <section class="section container" id="future-generations">
+    <SectionHeader eyebrow={fg.eyebrow} title={fg.title} lead={fg.lead} />
+
+    <svg class="fg-tide reveal" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0 20 Q 50 0 100 20 T 200 20 T 300 20 T 400 20 T 500 20 T 600 20 T 700 20 T 800 20 T 900 20 T 1000 20 T 1100 20 T 1200 20 V 40 H 0 Z" />
+    </svg>
+
+    <div class="grid12">
+      <div class="card card-pad col-8 fg-why reveal">
+        {fg.why.body.map((p) => <p>{p}</p>)}
+      </div>
+      <aside class="card card-pad col-4 fg-aside reveal">
+        <p class="t-eyebrow">{fg.why.aside.label}</p>
+        <p class="fg-aside-text">{fg.why.aside.text}</p>
+      </aside>
+    </div>
+
+    <h3 class="t-display fg-sub reveal">{fg.movement.title}</h3>
+    <div class="grid12">
+      {[fg.movement.home, fg.movement.world].map((group, i) => (
+        <div class={`card card-pad col-6 fg-list reveal${i === 1 ? " fg-list-world" : ""}`}>
+          <span class="pill fg-list-pill">{group.label}</span>
+          <ul>
+            {group.items.map((it) => (
+              <li><strong>{it.name}.</strong>{" "}{it.text}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <p class="fg-close reveal">{fg.movement.close}</p>
+
+    <h3 class="t-display fg-sub reveal">{fg.work.title}</h3>
+    <ol class="grid12 fg-work">
+      {fg.work.items.map((w, i) => (
+        <li class={`card card-pad ${i < 3 ? "col-4" : "col-6"} fg-step reveal`}>
+          <span class="fg-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+          <h4 class="fg-step-title">{w.title}</h4>
+          <p class="fg-step-text">{w.text}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="fg-cta reveal">
+      <p>{fg.cta.text}</p>
+      <a class="cta-pill" href={fg.cta.href}>{fg.cta.label}</a>
+    </div>
+  </section>
+)}
+
+<style>
+  /* Tide line: flat frame-colour wave with the black keyline on top. */
+  .fg-tide { width: 100%; height: clamp(18px, 2.4vw, 28px); margin: -0.6rem 0 var(--gutter); overflow: visible; }
+  .fg-tide path { fill: var(--frame, var(--cobalt)); stroke: var(--ink); stroke-width: 3; vector-effect: non-scaling-stroke; }
+
+  .fg-why p { color: var(--text-mute); font-size: 1.08rem; line-height: 1.75; margin-bottom: 1.1rem; }
+  .fg-why p:first-child { color: var(--card-ink, var(--ink)); font-weight: 600; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.55; }
+  .fg-why p:last-child { margin-bottom: 0; }
+  .fg-aside { display: flex; flex-direction: column; gap: 0.9rem; background: var(--frame-2, var(--paper)); }
+  .fg-aside-text { font-weight: 600; font-size: 1.02rem; line-height: 1.55; }
+
+  .fg-sub {
+    font-size: clamp(1.5rem, 2vw + 0.8rem, 2.2rem);
+    margin: clamp(2.2rem, 4vw, 3.2rem) 0 1.4rem; text-align: center;
+  }
+
+  .fg-list { display: flex; flex-direction: column; gap: 1.2rem; }
+  .fg-list-world { background: var(--paper); }
+  .fg-list-pill { align-self: flex-start; }
+  .fg-list ul { list-style: none; display: flex; flex-direction: column; }
+  .fg-list li { padding: 0.85rem 0; border-top: 2px solid var(--line); font-size: 0.97rem; line-height: 1.6; }
+  .fg-list li:first-child { border-top: none; padding-top: 0; }
+  .fg-list li:last-child { padding-bottom: 0; }
+  .fg-list strong { font-weight: 800; }
+
+  .fg-close { text-align: center; font-weight: 800; font-size: clamp(1rem, 1.4vw, 1.15rem); margin: 1.6rem auto 0; max-width: 46ch; }
+
+  .fg-work { list-style: none; }
+  .fg-step { display: flex; flex-direction: column; gap: 0.6rem; padding-top: clamp(2.6rem, 4vw, 3rem); }
+  .fg-num {
+    position: absolute; top: -1.1rem; left: 1.4rem;
+    width: 3rem; height: 3rem; border-radius: 999px; display: grid; place-items: center;
+    background: var(--frame-2, var(--lemon)); color: var(--ink);
+    border: var(--border-card) solid var(--ink);
+    font-weight: 800; font-size: 0.95rem; letter-spacing: 0.02em;
+    transform: rotate(-8deg);
+  }
+  .fg-work { margin-top: 1.1rem; row-gap: calc(var(--gutter) + 1.1rem); }
+  .fg-step-title { font-size: 1.15rem; font-weight: 800; }
+  .fg-step-text { color: var(--text-mute); font-size: 0.95rem; line-height: 1.6; }
+
+  .fg-cta { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; margin-top: 2.5rem; text-align: center; }
+  .fg-cta p { font-weight: 700; font-size: clamp(1.02rem, 1.5vw, 1.2rem); max-width: 44ch; }
+</style>
