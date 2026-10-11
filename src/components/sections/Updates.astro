@@ -24,7 +24,7 @@ const posts = (await getCollection("updates")).sort(
     </SectionHeader>
     <Rail label="Latest updates" itemWidth="min(340px, 78vw)">
       {posts.map((p) => (
-        <a class="card card-pad update" href={`/updates/${p.slug}/`} role="listitem">
+        <a class="card card-pad update" href={`/updates/${p.id}/`} role="listitem">
           {p.data.image && (
             <div class="update-photo">
               <img src={p.data.image} alt="" loading="lazy" />
