@@ -20,6 +20,9 @@ const fg = site["future-generations"];
     <div class="grid12">
       <div class="card card-pad col-8 fg-why reveal">
         {fg.why.body.map((p) => <p>{p}</p>)}
+        <a class="fg-cyp" href="https://centreforyouthpolicy.org" target="_blank" rel="noopener">
+          <img src="/img/cyp-black.svg" alt="Centre for Youth Policy" width="758" height="178" />
+        </a>
       </div>
       <aside class="card card-pad col-4 fg-aside reveal">
         <p class="t-eyebrow">{fg.why.aside.label}</p>
@@ -67,7 +70,10 @@ const fg = site["future-generations"];
 
   .fg-why p { color: var(--text-mute); font-size: 1.08rem; line-height: 1.75; margin-bottom: 1.1rem; }
   .fg-why p:first-child { color: var(--card-ink, var(--ink)); font-weight: 600; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.55; }
-  .fg-why p:last-child { margin-bottom: 0; }
+  .fg-why p:last-of-type { margin-bottom: 0; }
+  .fg-cyp { display: inline-block; margin-top: 1.4rem; opacity: 0.85; transition: opacity 0.2s var(--ease); }
+  .fg-cyp:hover { opacity: 1; }
+  .fg-cyp img { display: block; height: clamp(28px, 2.6vw, 36px); width: auto; }
   .fg-aside { display: flex; flex-direction: column; gap: 0.9rem; background: var(--frame-2, var(--paper)); }
   .fg-aside-text { font-weight: 600; font-size: 1.02rem; line-height: 1.55; }
 
