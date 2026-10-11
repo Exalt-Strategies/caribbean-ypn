@@ -33,7 +33,7 @@ Answer with specifics — a name, a place, a vibe — and it takes it from there
 
 ## What's inside
 
-- **Astro 4** static site — no framework runtime, plain CSS.
+- **Astro 7** static site — no framework runtime, plain CSS.
 - `src/data/site.ts` — every word on the site lives here.
 - `src/content/` — markdown collections for updates + blog posts.
 - `src/styles/tokens.css` — swap ~10 tokens to re-brand the whole site.

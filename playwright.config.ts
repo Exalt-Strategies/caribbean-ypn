@@ -18,7 +18,9 @@ export default defineConfig({
     toHaveScreenshot: { maxDiffPixelRatio: 0.02 },
   },
   webServer: {
-    command: "npm run build && npm run preview -- --port 4323",
+    // --ignore-lock keeps `astro preview` in the foreground: Astro 7 otherwise
+    // auto-backgrounds it under coding agents and Playwright sees it exit early.
+    command: "npm run build && npm run preview -- --port 4323 --ignore-lock",
     url: "http://localhost:4323",
     reuseExistingServer: true,
     timeout: 180_000,

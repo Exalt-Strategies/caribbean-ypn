@@ -1,6 +1,6 @@
 # exalt-druid — spawnable card-layout site skeleton
 
-An Astro 4 static site designed to be **re-themed by Claude Code into any website**.
+An Astro 7 static site designed to be **re-themed by Claude Code into any website**.
 The demo content ("Meridian Youth Collective", a fictional youth political party)
 exists only to exercise every section recipe — replace it wholesale on spawn.
 
@@ -50,7 +50,7 @@ run `test:e2e:update` after a deliberate restyle (visual snapshots will differ b
 4. Re-skin via `src/styles/tokens.css` brand tokens.
 5. `npm run test` until green; fix content, not tests.
 
-## Content rules (enforced by tests/unit/content.test.ts + src/content/config.ts)
+## Content rules (enforced by tests/unit/content.test.ts + src/content.config.ts)
 
 - `site.ts` leaves: strings/numbers/booleans only. No undefined, no functions.
 - Card titles (events, campaigns, manifestos, timeline): ≤ 60 chars.

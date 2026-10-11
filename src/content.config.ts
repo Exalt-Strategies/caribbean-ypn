@@ -1,4 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 /**
  * Two collections, one engine:
@@ -8,7 +10,7 @@ import { defineCollection, z } from "astro:content";
  */
 
 const updates = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/updates" }),
   schema: z.object({
     title: z.string().max(70),
     date: z.date(),
@@ -19,7 +21,7 @@ const updates = defineCollection({
 });
 
 const blog = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
   schema: z.object({
     title: z.string().max(70),
     date: z.date(),

@@ -17,7 +17,7 @@ const posts = (await getCollection("blog"))
     <SectionHeader eyebrow={blog.eyebrow} title={blog.title} />
     <div class="grid12">
       {posts.map((p) => (
-        <a class="card card-pad col-4 post reveal" href={`/blog/${p.slug}/`}>
+        <a class="card card-pad col-4 post reveal" href={`/blog/${p.id}/`}>
           <div class="post-meta">
             <span class="pill pill-soft">{p.data.tag}</span>
             <time datetime={p.data.date.toISOString()}>{formatDate(p.data.date)}</time>
